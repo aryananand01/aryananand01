@@ -1,0 +1,63 @@
+package com.company.array;
+import java.sql.SQLOutput;
+import java.util.Arrays;
+import java.util.Scanner;
+public class acendingOrder {
+    /*
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+    int n, temp;
+    int max=0;
+    System.out.print("Enter no. of elements you want in array:");
+    n = s.nextInt();
+    int a[] = new int[n];
+        System.out.println("Enter all the elements:");
+        for (int i = 0; i < n; i++)
+    {
+        a[i] = s.nextInt();
+    }
+        for (int i = 0; i < n; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (a[i] > a[j])
+            {
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+    }
+        for (int i = 0; i <(n )/2; i++) {
+            if (max < a[i] + a[n - 1 - i]) {
+                max = a[i] + a[n - 1 - i];
+            }
+        }
+            System.out.println(max);
+            }
+
+        }
+*/
+    public static void main (String[] args) {
+            Scanner sc = new Scanner(System.in);
+            int n = sc.nextInt();
+            int [] nums = new int[n];
+            for(int i=0;i<n;i++) {
+                nums[i]=sc.nextInt();
+            }
+            if(nums.length < 2) {
+                return;
+            }else if(nums.length==2) {
+                System.out.println(nums[0] + nums[1]);
+            }
+             Arrays.sort(nums); // this will just make arrow value in increasing order
+            int max=Integer.MIN_VALUE;
+            for(int i=0;i <(n )/2; i++) {
+                max=Math.max(max,  nums[i] + nums[n-1-i]);
+            }
+            System.out.println(max);
+        }
+    }
+
+

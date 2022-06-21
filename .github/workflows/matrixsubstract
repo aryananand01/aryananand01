@@ -1,0 +1,40 @@
+package com.company.array;
+
+import java.util.Scanner;
+
+public class substractionOfTwoMatrix {
+        public static void main(String[] args) {
+// addition and substraction of 2 matrix done when row = col.
+            Scanner sc = new Scanner(System.in);
+            int row1 = sc.nextInt();
+            int cols1 = sc.nextInt();
+            int m1[][] = new int[row1][cols1];
+            for (int r = 0; r < row1; r++) {
+                for (int c = 0; c < cols1; c++) {
+                    m1[r][c] = sc.nextInt();
+                }
+            }
+
+            int m2[][] = new int[row1][cols1];
+            for (int r = 0; r < row1; r++) {
+                for (int c = 0; c < cols1; c++) {
+                    m2[r][c] = sc.nextInt();
+                }
+            }
+
+
+            int result[][] = new int[row1][cols1];
+            for (int r = 0; r < row1; r++) {
+                for (int c = 0; c < cols1; c++) {
+                    result[r][c] = result[r][c] + (m1[r][c] - m2[r][c]);
+
+                }
+            }
+            for (int r = 0; r < row1; r++) {
+                for (int c = 0; c < cols1; c++) {
+                    System.out.print(result[r][c] + " ");
+                }
+            }
+        }
+
+    }

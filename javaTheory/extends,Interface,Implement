@@ -1,0 +1,89 @@
+1) Difference between extends and implements keywords in Java?
+Though both extends and implements keyword in Java is used to implement 
+Inheritance concept of Object-Oriented programming,there is a subtle
+difference between them. The extends keyword is mainly used to extend a 
+class i.e. to create a subclass in Java, while the implements keyword is used
+to implement an interface in Java. The extends keyword can also be used by 
+an interface for extending another interface.
+
+point:-->
+class with class-->extends
+class with interface-->implements
+interface with interface -->extends
+
+
+2) What is the meaning of extending a class?
+A class in Java can extend to another class to become a subclass.
+When class B extends class A, B becomes subclass (child) and A becomes superclass (parent).
+A subclass can reuse all the features of the parent class and code reuse is a major 
+reason for extending a class but few understand that more important is the defining 
+relationship which is later leveraged by Polymorphism.
+
+For example, if class B extends class A then a reference variable of 
+type A can hold the object of B, which means A now becomes polymorphic 
+because it can hold both A and B. This gives birth to a technique of creating flexible software,
+known as programming for interface than implementation where you always use 
+variables of the parent class or interface to define the core algorithm.
+The benefit of doing this is any new class that extends the parent class will have access to that algorithm.
+
+Here is an example of extending a class in Java:
+
+class A { 
+public void show() { 
+System.out.println("show"); 
+} 
+} 
+class B extends A {
+public void display() { 
+System.out.println("display"); 
+} 
+public void show() { 
+System.out.println("better show"); 
+} 
+} 
+public class Main { 
+public static void main(String[] args) {
+A a = new B(); // possible because B extends A
+a.show(); // this will now call to show() method of class B 
+} 
+} 
+Output : better show
+
+You can see that by extending class A, B now has access to the show() method,
+it can even override the behavior of the show() method, which is known as method
+overriding in Java. This immense power comes by using the extends keyword.
+
+
+3) What is the meaning of implementing an interface
+The meaning of implementing an interface is not very different than extending a 
+class but it comes with an additional caveat. When a class implements an interface
+it has to provide an implementation of all methods declared inside the interface.
+If It doesn't wish to provide all implementation, it can declare itself as an abstract class.
+
+Not following these rules means your program cannot compile. 
+There are many examples of implementing an interface in Java code, 
+but I believe implementing Runnable is the most popular. 
+This is used to create a Runnable task that can be executed by a thread.
+
+class R implements Runnable{ 
+public void run(){ 
+System.out.println("do nothing"); 
+} 
+}
+
+
+An instance of R now can be passed to any method which expects a
+Runnable like you can pass this to both execute() and submit() method of
+ExecutorService class to run that task in a thread pool. Since our class has
+implemented the run() method, the single method from interface Runnable,
+it is a concrete class. If it had not implemented the run() method
+you have to make it abstract by adding the abstract keyword in front of the class like:
+
+abstract class R implements Runnable{
+
+}
+
+
+
+
+
